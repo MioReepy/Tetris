@@ -16,12 +16,12 @@ public enum Tetromino
 [Serializable]
 public struct TetrominoData
 {
-    public Tetromino tetrominoEnum;
-    public Tile Tiles;
+    public Tetromino TetrominoEnum;
+    public Tile Tiles ;
     public Vector2Int[] Cells;
 
     public void Initialize()
     {
-        this.Cells = Data.Cells[this.tetrominoEnum];
+        this.Cells = Data.Cells[this.TetrominoEnum];
     }
 }
