@@ -96,10 +96,64 @@ public class Board : MonoBehaviour
         return true;
     }
 
-    // public void ClearLines()
-    // {
-    //     RectInt bounds = this.Bounds;
-    //     int row = bounds.yMax;
-    // }
+    public void ClearLines()
+    {
+        RectInt bounds = this.Bounds;
+        int row = bounds.yMin;
+
+        while (row < bounds.yMax)
+        {
+            if (isLineFull(row))
+            {
+                LineClear(row);
+            }
+            else
+            {
+                row++;
+            }
+        }
+    }
+
+    private bool isLineFull(int row)
+    {
+        RectInt bounds = this.Bounds;
+
+        for (int collumn = bounds.xMin; collumn < bounds.xMax; collumn++)
+        {
+            Vector3Int position = new Vector3Int(collumn, row, 0);
+
+            if (!this.Tilemap.HasTile(position))
+            {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+
+    private void LineClear(int row)
+    {
+        RectInt bounds = this.Bounds;
+
+        for (int collumn = bounds.xMin; collumn < bounds.xMax; collumn++)
+        {
+            Vector3Int position = new Vector3Int(collumn, row, 0);
+            this.Tilemap.SetTile(position, null);
+        }
+
+        while (row < bounds.yMax)
+        {
+            for (int collumn = bounds.xMin; collumn < bounds.xMax; collumn++)
+            {
+                Vector3Int position = new Vector3Int(collumn, row + 1, 0);
+                TileBase above = this.Tilemap.GetTile(position);
+                
+                position = new Vector3Int(collumn, row, 0);
+                this.Tilemap.SetTile(position, above);
+            }
+
+            row++;
+        }
+    }
 }
 
