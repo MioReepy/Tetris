@@ -40,8 +40,21 @@ public class Board : MonoBehaviour
         TetrominoData data = TetrominoDatas[random];
         
         ActivePiece.Initialize(this, SpawnPosition, data);
-        Set(ActivePiece);
-    } 
+
+        if (IsValidatePosition(ActivePiece, SpawnPosition))
+        {
+            Set(ActivePiece);
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        Tilemap.ClearAllTiles();
+    }
 
     public void Set(Piece piece)
     {
@@ -82,5 +95,11 @@ public class Board : MonoBehaviour
         
         return true;
     }
+
+    // public void ClearLines()
+    // {
+    //     RectInt bounds = this.Bounds;
+    //     int row = bounds.yMax;
+    // }
 }
 
