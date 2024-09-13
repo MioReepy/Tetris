@@ -132,6 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 118304061}
   - component: {fileID: 118304060}
+  - component: {fileID: 118304062}
   m_Layer: 0
   m_Name: Ghost
   m_TagString: Untagged
@@ -167,6 +168,21 @@ Transform:
   - {fileID: 643153253}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &118304062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118304059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89bc7e368e524c4689cc3bd9aa209cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tile: {fileID: 11400000, guid: 5b7ba61805fdf4b48bd92374b72ec208, type: 2}
+  MainBoard: {fileID: 1250780419}
+  TrackingPiece: {fileID: 1250780422}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -660,25 +676,18 @@ MonoBehaviour:
   TetrominoDatas:
   - TetrominoEnum: 0
     Tiles: {fileID: 11400000, guid: 87cc5035a92bf87478ef4a322aae13f9, type: 2}
-    Cells: []
   - TetrominoEnum: 1
     Tiles: {fileID: 11400000, guid: 917688f53da10ee4891e001f67b1e9d2, type: 2}
-    Cells: []
   - TetrominoEnum: 2
     Tiles: {fileID: 11400000, guid: 1f2bc0ffcbb16e4489af4e940594114d, type: 2}
-    Cells: []
   - TetrominoEnum: 3
     Tiles: {fileID: 11400000, guid: b32b95e9a8dd2104299a837065a39433, type: 2}
-    Cells: []
   - TetrominoEnum: 4
     Tiles: {fileID: 11400000, guid: 9548f7478bf54874788fbecf3908e077, type: 2}
-    Cells: []
   - TetrominoEnum: 5
     Tiles: {fileID: 11400000, guid: 0dd7fde7556ea594aa1d3409d466d234, type: 2}
-    Cells: []
   - TetrominoEnum: 6
     Tiles: {fileID: 11400000, guid: 44dc6fb47c627374bb35d9d14d671ea0, type: 2}
-    Cells: []
   SpawnPosition: {x: -1, y: 8, z: 0}
   BoardSize: {x: 10, y: 20}
 --- !u!156049354 &1250780420
@@ -721,6 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c975898cdc2f68c408e54f670354dd1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepDelay: 1
+  lockDelay: 0.5
 --- !u!1 &1338885668
 GameObject:
   m_ObjectHideFlags: 0
